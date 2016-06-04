@@ -1,0 +1,23 @@
+<ion-view view-title="Descubra" class="discover-page">
+  <ion-content scroll="false">
+  	<div class="list card">
+  		<div class="item item-image">
+  			<!--<img ng-src="http://www.camara.gov.br/internet/deputado/bandep/134812.jpg">-->
+  			<img ng-src="{{congressMan.thumbnail}}">
+  			<div class="item">
+  				<h2>{{congressMan.name}}</h2>
+  				<p>{{congressMan.tagline}}</a>
+  			</div>
+  			<div class="item tabs tabs-secondary tab-icon-left">
+  				<a class="tab-item" ng-click="sendFeedback(false)">
+  					<i class="icon ion-close"></i>
+  					Odeio
+  				</a>
+  				<a class="tab-item" ng-click="sendFeedback(false)">
+  					<i class="icon ion-heart"></i>
+  					Gosto
+  				</a>
+  		</div>
+  	</div>
+  </ion-content>
+</ion-view>
