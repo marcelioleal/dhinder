@@ -1,6 +1,6 @@
 angular.module('dhinder.controllers', ['ionic', 'dhinder.services'])
 
-.controller('DiscoverController', function($scope, $timeout) {
+.controller('DiscoverController', function($scope, $timeout, User) {
 
   $scope.congressMen = [
       {
@@ -37,6 +37,8 @@ angular.module('dhinder.controllers', ['ionic', 'dhinder.services'])
 
   $scope.sendFeedback = function(bool) {
 
+    if(bool) User.addToFavorites($scope.congressMan);
+
     $scope.congressMan.rated = bool;
     $scope.congressMan.hide = true;
 
@@ -49,6 +51,12 @@ angular.module('dhinder.controllers', ['ionic', 'dhinder.services'])
 
 })
 
-.controller('FavoritesController', function($scope) {})
+.controller('FavoritesController', function($scope, User) {
+  $scope.favorites = User.favorites;
+
+  $scope.removeCongressMan = function(congressMan, index) {
+    User.removeFromFavorites(congressMan, index);
+  }
+})
 
 .controller('TabsController', function($scope) {})
