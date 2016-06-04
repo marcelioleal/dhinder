@@ -1,6 +1,6 @@
 angular.module('dhinder.controllers', ['ionic', 'dhinder.services'])
 
-.controller('DiscoverController', function($scope) {
+.controller('DiscoverController', function($scope, $timeout) {
 
   $scope.congressMen = [
       {
@@ -37,9 +37,14 @@ angular.module('dhinder.controllers', ['ionic', 'dhinder.services'])
 
   $scope.sendFeedback = function(bool) {
 
-    var randomIndex = Math.round(Math.random() * ($scope.congressMen.length - 1));
+    $scope.congressMan.rated = bool;
+    $scope.congressMan.hide = true;
 
-    $scope.congressMan = angular.copy($scope.congressMen[randomIndex]);
+    $timeout(function () {
+      var randomIndex = Math.round(Math.random() * ($scope.congressMen.length - 1));
+
+      $scope.congressMan = angular.copy($scope.congressMen[randomIndex]);
+    }, 250);
   }
 
 })

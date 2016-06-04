@@ -1,6 +1,8 @@
 <ion-view view-title="Descubra" class="discover-page">
   <ion-content scroll="false">
-  	<div class="list card">
+  	<div class="list card current-product"
+    ng-class="{skipped: congressMan.rated == false, favorited: congressMan.rated == true}"
+    ng-show="congressMan && !congressMan.hide">
   		<div class="item item-image">
   			<!--<img ng-src="http://www.camara.gov.br/internet/deputado/bandep/134812.jpg">-->
   			<img ng-src="{{congressMan.thumbnail}}">
@@ -13,7 +15,7 @@
   					<i class="icon ion-close"></i>
   					Odeio
   				</a>
-  				<a class="tab-item" ng-click="sendFeedback(false)">
+  				<a class="tab-item" ng-click="sendFeedback(true)">
   					<i class="icon ion-heart"></i>
   					Gosto
   				</a>
